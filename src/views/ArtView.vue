@@ -8,6 +8,7 @@
     </header>
     <main>
       <h2>Art Gallery</h2>
+      <!-- Art portfolio content here -->
     </main>
   </div>
 </template>
