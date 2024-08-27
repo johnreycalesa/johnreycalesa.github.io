@@ -1,8 +1,7 @@
-<script setup>
-</script>
+<script setup></script>
 
 <template>
-    <main>
-        <h1 class="text-3xl font-bold underline">Footer</h1>
-    </main>
+  <main>
+    <h1 class="text-3xl font-bold underline">Footer</h1>
+  </main>
 </template>
