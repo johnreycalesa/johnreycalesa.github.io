@@ -1,1 +1,0 @@
-import{_ as e,c as o,o as t,a as s}from"./index-B9Z7EVA3.js";const c={},n={class:"h-screen"},r=s("h1",{class:"text-3xl font-bold underline"},"Home arts",-1),a=[r];function _(l,d){return t(),o("main",n,a)}const f=e(c,[["render",_]]);export{f as default};
