@@ -1,19 +1,20 @@
 <script setup>
+import { ref } from 'vue'
 import HeaderPage from '../components/HeaderPage.vue'
 import SkillsPage from '../components/SkillsPage.vue'
 import ExperiencePage from '../components/ExperiencePage.vue'
 import ProjectsPage from '../components/ProjectsPage.vue'
 import FooterPage from '../components/FooterPage.vue'
 
+const isNavOpen = ref(false)
 function toggleNav() {
-  const nav = document.getElementById('nav')
-  nav.classList.toggle('hidden')
+  isNavOpen.value = !isNavOpen.value
 }
 </script>
 
 <template>
-  <nav class="bg-gray-500 text-white p-4 sticky top-0 z-50">
-    <div class="container mx-auto flex items-center justify-between">
+  <nav class="p-4 sticky top-0 z-10">
+    <div class="container mx-auto flex items-center justify-between wrapper">
       <a class="flex items-center" href="#">
         <img
           src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
@@ -21,32 +22,57 @@ function toggleNav() {
           height="32"
           class="mr-2"
         />
-        <span class="text-lg font-semibold">Brand</span>
+        <span class="text-lg font-semibold">John Rey Calesa</span>
       </a>
       <button
         class="text-gray-600 focus:outline-none md:hidden"
         aria-label="Toggle navigation"
         @click="toggleNav"
       >
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M4 6h16M4 12h16m-7 6h7"
-          ></path>
-        </svg>
+        <ion-icon name="menu"></ion-icon>
       </button>
-      <div id="nav" class="hidden md:flex flex-grow items-center justify-between">
+      <div id="nav" class="hidden md:flex flex-grow items-center justify-end">
         <ul class="flex space-x-4">
-          <li><a class="text-gray-700 hover:text-gray-900" href="#">First Item</a></li>
-          <li><a class="text-gray-700 hover:text-gray-900" href="#">Second Item</a></li>
-          <li><a class="text-gray-700 hover:text-gray-900" href="#">Third Item</a></li>
+          <li><a class="hover:text-gray-300" href="#skills">Skills</a></li>
+          <li><a class="hover:text-gray-300" href="#experience">Experience</a></li>
+          <li><a class="hover:text-gray-300" href="#project">Projects</a></li>
         </ul>
-        <a class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600" href="#">Button</a>
+        <a
+          class="bg-white text-black border-2 border-black px-4 py-2 mx-4 rounded hover:bg-gray-300"
+          href="#footer"
+          >Contacts</a
+        >
       </div>
     </div>
+
+    <!-- Sidebar on the Right -->
+    <div
+      class="fixed top-0 right-0 h-full w-1/2 sm:w-1/3 bg-gray-500 text-white flex-col justify-between p-4 z-10 transition-all duration-300 ease-in-out md:hidden"
+      :class="isNavOpen ? 'flex' : 'hidden'"
+    >
+      <div class="flex flex-col items-start">
+        <ul class="space-y-4 w-full">
+          <li><a class="block hover:text-gray-300" href="#skills">Skills</a></li>
+          <li><a class="block hover:text-gray-300" href="#experience">Experience</a></li>
+          <li><a class="block hover:text-gray-300" href="#project">Projects</a></li>
+        </ul>
+        <a
+          class="bg-white text-black border-2 border-black px-4 py-2 mt-4 rounded hover:bg-gray-300 w-full text-center"
+          href="#footer"
+          >Contacts</a
+        >
+      </div>
+
+      <button
+        class="text-gray-800 focus:outline-none bg-white w-min p-2 sm:p-4 rounded-md border-2 border-black"
+        aria-label="Toggle navigation"
+        @click="toggleNav"
+      >
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </div>
   </nav>
+
   <div id="header">
     <HeaderPage />
   </div>
@@ -63,3 +89,14 @@ function toggleNav() {
     <FooterPage />
   </div>
 </template>
+
+<style scoped>
+nav {
+  background-color: var(--vt-c-tertiary);
+}
+
+ion-icon {
+  font-size: 32px;
+  color: #000000;
+}
+</style>

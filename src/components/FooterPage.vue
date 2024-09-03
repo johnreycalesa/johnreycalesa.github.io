@@ -1,42 +1,62 @@
 <script setup></script>
 
 <template>
-  <footer class="bg-gray-800 text-white py-4">
-    <div class="container mx-auto">
-      <div class="flex flex-wrap justify-center md:justify-between">
-        <div class="w-full md:w-1/2 px-4 mb-4 md:mb-0">
+  <footer class="text-black p-4 md:py-28 bg-gray-300">
+    <div class="container mx-auto wrapper">
+      <div class="flex flex-wrap justify-center items-center md:justify-around">
+        <div
+          class="w-full md:w-96 p-4 mb-4 md:mb-0 border-2 rounded-2xl border-black bg-white dark:bg-gray-800"
+        >
           <h2 class="text-xl font-bold mb-4">Contact us</h2>
-          <form method="post">
-            <div class="mb-3">
-              <input class="form-input w-full" type="text" name="name" placeholder="Name" />
+          <form method="post" class="flex flex-col gap-4">
+            <div class="">
+              <label class="block mb-2 text-sm font-bold">Name</label>
+              <input
+                class="form-input w-full px-2 border-2 border-black h-12 rounded-xl bg-gray-200"
+                type="text"
+                name="name"
+              />
             </div>
-            <div class="mb-3">
-              <input class="form-input w-full" type="email" name="email" placeholder="Email" />
+            <div class="">
+              <label class="block mb-2 text-sm font-bold">Email</label>
+              <input
+                class="form-input w-full px-2 border-2 border-black h-12 rounded-xl bg-gray-200"
+                type="email"
+                name="email"
+              />
             </div>
-            <div class="mb-3">
+            <div class="">
+              <label class="block mb-2 text-sm font-bold">Message</label>
               <textarea
-                class="form-input w-full"
+                class="form-input w-full px-2 border-2 border-black rounded-xl bg-gray-200"
                 name="message"
                 rows="6"
-                placeholder="Message"
               ></textarea>
             </div>
             <button
-              class="bg-blue-500 text-white px-4 py-2 rounded w-full hover:bg-blue-600"
+              class="bg-blue-500 text-black px-4 py-2 rounded w-full hover:bg-blue-600"
               type="submit"
             >
               Send
             </button>
           </form>
         </div>
-        <div class="w-full md:w-1/2 px-4">
-          <ul class="list-none flex flex-wrap justify-center md:justify-start mb-4">
-            <li class="mr-4"><a class="text-gray-400 hover:text-white" href="#">Web design</a></li>
-            <li class="mr-4"><a class="text-gray-400 hover:text-white" href="#">Development</a></li>
-            <li><a class="text-gray-400 hover:text-white" href="#">Hosting</a></li>
-          </ul>
-          <ul class="list-none flex justify-center mb-4">
+        <div class="w-full md:w-1/2 px-4 flex flex-col justify-center items-start gap-4">
+          <h3 class="text-center text-black font-bold">Reach me!</h3>
+          <ul class="list-none flex flex-col flex-wrap justify-center md:justify-start mb-4">
+            <li class="">
+              <p class="text-black small-text">
+                <span class="font-extrabold">Phone: </span> +1 123 456 7890
+              </p>
+            </li>
             <li class="mr-4">
+              <p class="text-black small-text">
+                <span class="font-extrabold">Email: </span> 6kGtA@example.com
+              </p>
+            </li>
+          </ul>
+          <ul class="list-none flex justify-center gap-4">
+            <li>
               <img
                 src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
                 width="32"
@@ -44,7 +64,7 @@
                 alt="Icon"
               />
             </li>
-            <li class="mr-4">
+            <li>
               <img
                 src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
                 width="32"
@@ -61,7 +81,6 @@
               />
             </li>
           </ul>
-          <p class="text-center text-gray-400">© 2024 Company Name. All rights reserved.</p>
         </div>
       </div>
     </div>

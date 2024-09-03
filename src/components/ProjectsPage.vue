@@ -1,8 +1,8 @@
 <script setup></script>
 
 <template>
-  <section class="container mx-auto p-4">
-    <h1 class="text-3xl font-bold mb-4">Projects</h1>
+  <section class="container mx-auto p-4 md:p-8 wrapper soft-background">
+    <h2 class="font-bold mb-4">Projects</h2>
     <div class="space-y-5">
       <div class="flex items-center">
         <div class="bg-blue-500 text-white p-3 rounded-full flex-shrink-0 mr-4">
