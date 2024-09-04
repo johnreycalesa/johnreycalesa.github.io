@@ -25,6 +25,38 @@ html {
   background-color: var(--vt-c-white-soft);
 }
 
+.primary-background {
+  background-color: var(--vt-c-primary);
+}
+
+.secondary-background {
+  background-color: var(--vt-c-secondary);
+}
+
+.tertiary-background {
+  background-color: var(--vt-c-tertiary);
+}
+
+.quaternary-background {
+  background-color: var(--vt-c-quaternary);
+}
+
+.text-primary {
+  color: var(--vt-c-primary);
+}
+
+.text-secondary {
+  color: var(--vt-c-secondary);
+}
+
+.text-tertiary {
+  color: var(--vt-c-tertiary);
+}
+
+.text-quaternary {
+  color: var(--vt-c-quaternary);
+}
+
 @media (min-width: 1280px) {
   body,
   p {
