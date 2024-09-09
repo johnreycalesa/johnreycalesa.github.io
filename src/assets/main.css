@@ -5,6 +5,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  * {
+    @apply transition-all duration-300 ease-in-out;
+  }
+}
+
 #app {
   margin: 0 auto;
   font-weight: normal;

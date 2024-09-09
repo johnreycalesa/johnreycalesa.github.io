@@ -1,118 +1,134 @@
 <script setup>
+import { ref } from 'vue'
 const skills = [
   {
     name: 'HTML',
-    image: '',
+    image: '/src/assets/logos/html.png',
     borderColor: '#E44D26',
-    backgroundColor: '#F16529'
   },
   {
     name: 'CSS',
-    image: ''
+    image: '/src/assets/logos/css.png',
+    borderColor: '#1172B8',
   },
   {
     name: 'JavaScript',
-    image: '',
+    image: '/src/assets/logos/javascript.png',
     borderColor: '#FFCA28',
-    backgroundColor: '#3E3E3E'
   },
   {
     name: 'C#',
-    image: ''
+    image: '/src/assets/logos/csharp.png',
+    borderColor: '#662579',
   },
   {
     name: 'Python',
-    image: '',
-    borderColor: '#327EBD',
-    backgroundColor: '#FFDA4B'
+    image: '/src/assets/logos/python.png',
+    borderColor: '#1565A7',
   },
   {
     name: 'Java',
-    image: ''
+    image: '/src/assets/logos/java.png',
+    borderColor: '#E76F00',
   },
   {
     name: 'TypeScript',
-    image: ''
+    image: '/src/assets/logos/typescript.png',
+    borderColor: '#007ACC',
   },
   {
     name: 'Angular',
-    image: ''
+    image: '/src/assets/logos/angular.png',
+    borderColor: '#C3002F',
   },
   {
     name: 'ReactJs',
-    image: '',
+    image: '/src/assets/logos/react.png',
     borderColor: '#53C1DE',
-    backgroundColor: '#53C1DE'
   },
   {
     name: 'VueJs',
-    image: ''
+    image: '/src/assets/logos/vue.png',
+    borderColor: '#41B883',
   },
   {
     name: 'TailwindCSS',
-    image: ''
+    image: '/src/assets/logos/tailwind.png',
+    borderColor: '#2298BD',
   },
   {
     name: 'Laravel',
-    image: ''
+    image: '/src/assets/logos/laravel.png',
+    borderColor: '#FF2D20',
   },
   {
     name: '.NET',
-    image: ''
+    image: '/src/assets/logos/dotnet.png',
+    borderColor: '#5027d5',
   },
   {
     name: 'MySQL',
-    image: ''
+    image: '/src/assets/logos/mysql.png',
+    borderColor: '#00546B',
   },
   {
     name: 'MongoDB',
-    image: ''
+    image: '/src/assets/logos/mongodb.png',
+    borderColor: '#499D4A',
   },
   {
     name: 'XAMPP',
-    image: ''
+    image: '/src/assets/logos/xampp.png',
+    borderColor: '#FB7A24',
   },
   {
     name: 'Firebase',
-    image: ''
+    image: '/src/assets/logos/firebase.png',
+    borderColor: '#FFA712',
   },
   {
     name: 'Mapbox',
-    image: ''
+    image: '/src/assets/logos/mapbox.png',
+    borderColor: '#485160',
   },
   {
     name: 'jQuery',
-    image: ''
+    image: '/src/assets/logos/jquery.png',
+    borderColor: '#0769AD',
   },
   {
     name: 'Springboot',
-    image: ''
+    image: '/src/assets/logos/springboot.png',
+    borderColor: '#6db53d',
   },
   {
     name: 'CodeIgniter',
-    image: ''
+    image: '/src/assets/logos/codeigniter.png',
+    borderColor: '#EE4323',
   }
 ]
+
+const hover = ref('');
+function onHover(index) {
+  hover.value = index;
+  console.log(hover.value)
+}
+
+function onLeave() {
+  hover.value = '';
+}
+
 </script>
 
 <template>
   <section class="container mx-auto p-4 md:p-8 wrapper soft-background md:rounded-lg">
     <h2 class="font-bold mb-4">Skills</h2>
-    <div
-      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 justify-stretch"
-    >
-      <div
-        v-for="(skill, index) in skills"
-        :key="index"
-        class="bg-white shadow-md rounded-2xl border-2 m-2"
-        :style="`border-color: ${skill.borderColor}`"
-      >
-        <div
-          v-html="skill.image"
-          class="w-full flex justify-center items-center h-40 object-cover rounded-t-2xl"
-          :style="`background-color: ${skill.backgroundColor}`"
-        ></div>
-        <h4 class="text-lg font-semibold w-full flex justify-center py-4">{{ skill.name }}</h4>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 justify-stretch">
+      <div v-for="(skill, index) in skills" :key="index" class="bg-white shadow-md rounded-2xl border-2 m-2"
+        :style="`border-color: ${skill.borderColor}`" @mouseover="onHover(index)" @mouseleave="onLeave">
+        <div class="h-48 w-full flex justify-center items-center">
+          <img class="size-40 object-cover rounded-t-xl bg-white p-4" :src="skill.image" :alt="skill.name" />
+        </div>
       </div>
     </div>
   </section>
