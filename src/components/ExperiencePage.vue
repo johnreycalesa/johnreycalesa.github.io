@@ -2,7 +2,7 @@
 const experiences = [
   {
     company_name: 'Proweaver Inc.',
-    company_logo: 'https://cdn.bootstrapstudio.io/placeholders/1400x800.png',
+    company_logo: 'photos/experience_1.png',
     company_logo_alt: 'Company Logo',
     position: 'Fullstack Web Developer',
     start_date: 'February 2024',
@@ -13,7 +13,7 @@ const experiences = [
   },
   {
     company_name: 'KYOCERA Document Solutions Inc.',
-    company_logo: 'https://cdn.bootstrapstudio.io/placeholders/1400x800.png',
+    company_logo: 'photos/experience_2.png',
     company_logo_alt: 'Company Logo',
     position: 'Software Engineer Intern',
     start_date: 'February 2023',
@@ -63,20 +63,14 @@ const certificates = [
           </p>
         </div>
       </div> -->
-      <div
-        v-for="(experience, index) in experiences"
-        :key="index"
-        class="bg-white overflow-hidden p-4 flex even:flex-row-reverse"
-      >
+      <div v-for="(experience, index) in experiences" :key="index"
+        class="bg-white overflow-hidden p-4 flex even:flex-row-reverse">
         <!-- <div class="flex justify-start items-center p-4 gap-4">
           <img :src="experience.company_logo" class="size-12 object-cover rounded-full" />
           <h4 class="text-lg font-semibold">{{ experience.company_name }}</h4>
         </div> -->
-        <img
-          class="w-full h-80 object-cover border-2 border-black rounded-lg"
-          src="https://cdn.bootstrapstudio.io/placeholders/1400x800.png"
-          alt="Image"
-        />
+        <img class="w-full h-80 object-cover border-2 border-gray-300 rounded-lg" :src="experience.company_logo"
+          alt="Image" />
         <div class="p-4 flex justify-center items-start flex-col">
           <h4 class="text-lg font-semibold">{{ experience.position }}</h4>
           <p class="font-medium">{{ experience.start_date }} - {{ experience.end_date }}</p>
@@ -90,9 +84,7 @@ const certificates = [
     <div class="py-4">
       <h3 class="font-bold mb-4">Certificates</h3>
       <div v-for="(certificate, index) in certificates" :key="index">
-        <div
-          class="flex items-center justify-between p-4 bg-white shadow-md rounded-2xl border-2 border-black"
-        >
+        <div class="flex items-center justify-between p-4 bg-white shadow-md rounded-2xl border-2 border-black">
           <div>
             <h2 class="text-xl font-bold mb-2">{{ certificate.name }}</h2>
             <p class="mb-0">
@@ -107,17 +99,12 @@ const certificates = [
                 <span class="font-bold">Certificate Number: </span>
                 <span>{{ certificate.number }}</span>
                 <span>
-                  <a :href="certificate.link" class="text-blue-600 hover:underline"
-                    >Download</a
-                  ></span
-                >
+                  <a :href="certificate.link" class="text-blue-600 hover:underline">Download</a></span>
               </p>
             </div>
           </div>
           <div class="flex items-center justify-center">
-            <span
-              class="material-symbols-outlined hidden md:block md:text-4xl xl:text-5xl text-gray-600"
-            >
+            <span class="material-symbols-outlined hidden md:block md:text-4xl xl:text-5xl text-gray-600">
               license
             </span>
           </div>
