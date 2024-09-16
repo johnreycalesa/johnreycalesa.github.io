@@ -3,107 +3,107 @@ import { ref } from 'vue'
 const skills = [
   {
     name: 'HTML',
-    image: '/src/assets/logos/html.png',
+    image: 'logos/html.png',
     borderColor: '#E44D26',
   },
   {
     name: 'CSS',
-    image: '/src/assets/logos/css.png',
+    image: 'logos/css.png',
     borderColor: '#1172B8',
   },
   {
     name: 'JavaScript',
-    image: '/src/assets/logos/javascript.png',
+    image: 'logos/javascript.png',
     borderColor: '#FFCA28',
   },
   {
     name: 'C#',
-    image: '/src/assets/logos/csharp.png',
+    image: 'logos/csharp.png',
     borderColor: '#662579',
   },
   {
     name: 'Python',
-    image: '/src/assets/logos/python.png',
+    image: 'logos/python.png',
     borderColor: '#1565A7',
   },
   {
     name: 'Java',
-    image: '/src/assets/logos/java.png',
+    image: 'logos/java.png',
     borderColor: '#E76F00',
   },
   {
     name: 'TypeScript',
-    image: '/src/assets/logos/typescript.png',
+    image: 'logos/typescript.png',
     borderColor: '#007ACC',
   },
   {
     name: 'Angular',
-    image: '/src/assets/logos/angular.png',
+    image: 'logos/angular.png',
     borderColor: '#C3002F',
   },
   {
     name: 'ReactJs',
-    image: '/src/assets/logos/react.png',
+    image: 'logos/react.png',
     borderColor: '#53C1DE',
   },
   {
     name: 'VueJs',
-    image: '/src/assets/logos/vue.png',
+    image: 'logos/vue.png',
     borderColor: '#41B883',
   },
   {
     name: 'TailwindCSS',
-    image: '/src/assets/logos/tailwind.png',
+    image: 'logos/tailwind.png',
     borderColor: '#2298BD',
   },
   {
     name: 'Laravel',
-    image: '/src/assets/logos/laravel.png',
+    image: 'logos/laravel.png',
     borderColor: '#FF2D20',
   },
   {
     name: '.NET',
-    image: '/src/assets/logos/dotnet.png',
+    image: 'logos/dotnet.png',
     borderColor: '#5027d5',
   },
   {
     name: 'MySQL',
-    image: '/src/assets/logos/mysql.png',
+    image: 'logos/mysql.png',
     borderColor: '#00546B',
   },
   {
     name: 'MongoDB',
-    image: '/src/assets/logos/mongodb.png',
+    image: 'logos/mongodb.png',
     borderColor: '#499D4A',
   },
   {
     name: 'XAMPP',
-    image: '/src/assets/logos/xampp.png',
+    image: 'logos/xampp.png',
     borderColor: '#FB7A24',
   },
   {
     name: 'Firebase',
-    image: '/src/assets/logos/firebase.png',
+    image: 'logos/firebase.png',
     borderColor: '#FFA712',
   },
   {
     name: 'Mapbox',
-    image: '/src/assets/logos/mapbox.png',
+    image: 'logos/mapbox.png',
     borderColor: '#485160',
   },
   {
     name: 'jQuery',
-    image: '/src/assets/logos/jquery.png',
+    image: 'logos/jquery.png',
     borderColor: '#0769AD',
   },
   {
     name: 'Springboot',
-    image: '/src/assets/logos/springboot.png',
+    image: 'logos/springboot.png',
     borderColor: '#6db53d',
   },
   {
     name: 'CodeIgniter',
-    image: '/src/assets/logos/codeigniter.png',
+    image: 'logos/codeigniter.png',
     borderColor: '#EE4323',
   }
 ]
