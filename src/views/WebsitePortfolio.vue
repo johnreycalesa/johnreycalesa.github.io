@@ -7,6 +7,26 @@ import ProjectsPage from '../components/ProjectsPage.vue'
 import FooterPage from '../components/FooterPage.vue'
 
 const isNavOpen = ref(false)
+const images = document.querySelectorAll('.lazy')
+const observer = new IntersectionObserver(handleIntersect, {
+  threshold: 0.3
+})
+
+function handleIntersect(entries, observer) {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show')
+      // observer.unobserve(entry.target) // Stop observing the image
+      console.log(entry.target)
+    } else {
+      entry.target.classList.remove('show')
+    }
+  })
+}
+
+images.forEach((image) => {
+  observer.observe(image)
+})
 function toggleNav() {
   isNavOpen.value = !isNavOpen.value
 }
@@ -77,19 +97,19 @@ function toggleNav() {
     </div>
   </nav>
 
-  <div id="header">
+  <div id="header" class="lazy">
     <HeaderPage />
   </div>
-  <div id="skills">
+  <div id="skills" class="lazy">
     <SkillsPage />
   </div>
-  <div id="experience">
+  <div id="experience" class="lazy">
     <ExperiencePage />
   </div>
-  <div id="project">
+  <div id="project" class="lazy">
     <ProjectsPage />
   </div>
-  <div id="footer">
+  <div id="footer" class="lazy">
     <FooterPage />
   </div>
 </template>
@@ -98,5 +118,9 @@ function toggleNav() {
 ion-icon {
   font-size: 32px;
   color: #000000;
+}
+
+.show {
+  opacity: 1;
 }
 </style>
