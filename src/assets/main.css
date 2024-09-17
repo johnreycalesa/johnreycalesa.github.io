@@ -11,21 +11,21 @@
   }
 }
 
-    @keyframes slideIn {
-      from {
-        transform: translateX(-100%);
-        opacity: 0;
-      }
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
 
-      to {
-        transform: translateX(0);
-        opacity: 1;
-      }
-    }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
 
-    .slide-in {
-      animation: slideIn 2s forwards;
-    }
+.slide-in {
+  animation: slideIn 2s forwards;
+}
 
 #app {
   margin: 0 auto;

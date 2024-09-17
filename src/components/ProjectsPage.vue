@@ -1,4 +1,6 @@
 <script setup>
+import { onMounted } from 'vue'
+
 const projects = [
   {
     name: 'Speedy Delivery and Repair',
@@ -27,37 +29,51 @@ const projects = [
     alt: 'Favio Jasso`s Icon'
   }
 ]
+
+onMounted(() => {
+  const elements = document.querySelectorAll('.project-item')
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && entry.intersectionRatio >= 0.3) {
+          if (entry.target.dataset.index % 2 === 0) {
+            entry.target.classList.add('slide-right')
+          } else {
+            entry.target.classList.add('slide-left')
+          }
+        } else {
+          entry.target.classList.remove('slide-left', 'slide-right')
+        }
+      })
+    },
+    { threshold: 0.3 }
+  )
+
+  elements.forEach((el) => {
+    observer.observe(el)
+  })
+})
 </script>
 
 <template>
   <section class="container mx-auto xl:mb-4 p-4 md:p-8 wrapper soft-background md:rounded-lg">
     <h2 class="font-bold mb-4">Projects</h2>
     <div
-      class="space-y-5 flex items-center w-full justify-around my-4 odd:flex-row-reverse"
-      v-for="(project, index) in projects"
-      :key="index"
-    >
+      class="project-item space-y-5 flex items-center w-full justify-around my-4 odd:flex-row-reverse opacity-0 translate-x-10"
+      v-for="(project, index) in projects" :key="index" :data-index="index">
       <div class="border-2 rounded-xl border-black bg-white">
-        <img
-          class="w-full h-80 object-cover rounded-t-xl"
-          :src="project.image"
-          :alt="project.alt"
-        />
+        <img class="w-[650px] h-80 object-cover rounded-t-xl" :src="project.image" :alt="project.alt" />
         <div class="flex justify-between p-4 items-center">
           <div>
             <h4 class="text-lg font-semibold">{{ project.name }}</h4>
             <p>{{ project.year }}</p>
           </div>
-          <a
-            class="border-2 flex justify-center items-center h-min px-2 py-1 rounded-lg border-black"
-            :href="project.link"
-            >Learn More <span class="material-symbols-outlined"> north_east </span></a
-          >
+          <a class="border-2 flex justify-center items-center h-min px-2 py-1 rounded-lg border-black"
+            :href="project.link">Learn More <span class="material-symbols-outlined"> north_east </span></a>
         </div>
       </div>
-      <div
-        class="border-2 size-64 flex justify-center items-center p-4 rounded-xl border-black bg-white"
-      >
+      <div class="border-2 size-64 justify-center items-center p-4 m-4 rounded-xl border-black bg-white hidden md:flex">
         <p class="text-center font-semibold">
           {{ project.description }}
         </p>
@@ -66,4 +82,42 @@ const projects = [
   </section>
 </template>
 
-<style scoped></style>
+<style scoped>
+@keyframes slideFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-32px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(32px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.slide-left {
+  animation: slideFromLeft 0.5s ease forwards;
+}
+
+.slide-right {
+  animation: slideFromRight 0.5s ease forwards;
+}
+
+.project-item {
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+</style>

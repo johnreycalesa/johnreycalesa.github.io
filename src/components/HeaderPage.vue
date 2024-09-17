@@ -1,7 +1,28 @@
-<script setup></script>
+<script setup>
+import { onMounted } from 'vue'
+
+onMounted(() => {
+  const sectionElement = document.querySelector('.section-animate')
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('slide-down')
+        } else {
+          entry.target.classList.remove('slide-down')
+        }
+      })
+    },
+    { threshold: 0.3 }
+  )
+
+  observer.observe(sectionElement)
+})
+</script>
 
 <template>
-  <section class="p-4 md:p-8">
+  <section class="p-4 md:p-8 section-animate opacity-0 translate-y-10">
     <div class="container mx-auto wrapper">
       <div class="bg-gray-800 shadow-md rounded-2xl border-2 border-black overflow-hidden">
         <div class="flex flex-col-reverse md:flex-row">
@@ -27,4 +48,26 @@
   </section>
 </template>
 
-<style scoped></style>
+<style scoped>
+@keyframes slideFromTop {
+  from {
+    opacity: 0;
+    transform: translateY(-75px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-down {
+  animation: slideFromTop 0.5s ease forwards;
+}
+
+.section-animate {
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+</style>

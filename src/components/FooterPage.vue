@@ -1,7 +1,30 @@
-<script setup></script>
+<script setup>
+import { onMounted } from 'vue'
+
+onMounted(() => {
+  const footerElement = document.querySelector('.footer-animate')
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('slide-up')
+        } else {
+          entry.target.classList.remove('slide-up')
+        }
+      })
+    },
+    { threshold: 0.1 }
+  )
+
+  observer.observe(footerElement)
+})
+</script>
 
 <template>
-  <footer class="text-black p-4 md:py-28 bg-gray-300 dark:bg-[var(--vt-c-primary)]">
+  <footer
+    class="text-black p-4 md:py-28 bg-gray-300 dark:bg-[var(--vt-c-primary)] footer-animate opacity-0 translate-y-10"
+  >
     <div class="container mx-auto wrapper">
       <div class="flex flex-wrap justify-center items-center md:justify-around">
         <div
@@ -87,4 +110,26 @@
   </footer>
 </template>
 
-<style scoped></style>
+<style scoped>
+@keyframes slideFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-up {
+  animation: slideFromBottom 0.5s ease forwards;
+}
+
+.footer-animate {
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+</style>
