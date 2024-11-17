@@ -64,14 +64,21 @@ onMounted(() => {
   <section class="container mx-auto p-4 md:p-8 wrapper soft-background md:rounded-lg">
     <h2 class="font-bold mb-4">Skills</h2>
     <div class="flex justify-around items-center w-full flex-wrap gap-3 sm:gap-10 border">
-      <div v-for="(skill, index) in skills" :key="index"
+      <div
+        v-for="(skill, index) in skills"
+        :key="index"
         class="skill-item relative size-[100px] sm:size-[150px] md:size-[200px] bg-white border-2 border-opacity-60 rounded-lg flex justify-center items-center p-2 sm:p-6 hover:scale-105 hover:shadow-normal transition-all duration-300 opacity-0 translate-y-10"
-        :style="{ borderColor: skill.color }" @mouseover="showSkill(skill.name)" @mouseleave="hideSkill">
+        :style="{ borderColor: skill.color }"
+        @mouseover="showSkill(skill.name)"
+        @mouseleave="hideSkill"
+      >
         <img class="w-full object-contain" :src="skill.image" :alt="`${skill.name} icon`" />
 
-        <div v-if="isSkillVisible && selectedSkill === skill.name"
-          class="absolute inset-x-0 -top-10 sm:-top-12 md:-top-15 flex items-center justify-center text-white text-xs sm:text-sm md:text-2xl font-bold transition-opacity duration-300 rounded-xl shadow-normal p-2"
-          :style="{ background: skill.color }">
+        <div
+          v-if="isSkillVisible && selectedSkill === skill.name"
+          class="absolute inset-x-0 -top-10 sm:-top-12 md:-top-15 flex items-center justify-center text-white text-xs sm:text-sm md:text-2xl font-bold transition-opacity duration-300 rounded-xl shadow-normal p-2 md:-mt-2"
+          :style="{ background: skill.color }"
+        >
           {{ skill.name }}
         </div>
       </div>

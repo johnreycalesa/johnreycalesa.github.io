@@ -69,39 +69,62 @@ onMounted(() => {
           <ul class="list-none flex flex-col flex-wrap justify-center md:justify-start mb-4">
             <li class="">
               <p class="text-black small-text dark:text-white">
-                <span class="font-extrabold">Phone: </span> +1 123 456 7890
+                <span class="font-extrabold">Phone: </span> +63 977 214 3141
               </p>
             </li>
             <li class="mr-4">
               <p class="text-black small-text dark:text-white">
-                <span class="font-extrabold">Email: </span> 6kGtA@example.com
+                <span class="font-extrabold">Email: </span> calesajohnrey@gmail.com
               </p>
             </li>
           </ul>
           <ul class="list-none flex justify-center gap-4">
             <li>
-              <img
-                src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
-                width="32"
-                height="32"
-                alt="Icon"
-              />
+              <a
+                href="https://www.facebook.com/john.rey.calesa/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <ion-icon name="logo-facebook" class="text-4xl text-white"></ion-icon>
+              </a>
             </li>
             <li>
-              <img
-                src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
-                width="32"
-                height="32"
-                alt="Icon"
-              />
+              <a href="mailto:calesajohnrey@gmail.com" target="_blank" rel="noopener noreferrer">
+                <ion-icon name="mail-outline" class="text-4xl text-white"></ion-icon>
+              </a>
             </li>
             <li>
-              <img
-                src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
-                width="32"
-                height="32"
-                alt="Icon"
-              />
+              <a href="https://dribbble.com/john_rey2001" target="_blank" rel="noopener noreferrer">
+                <ion-icon name="logo-dribbble" class="text-4xl text-white"></ion-icon>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.instagram.com/jeon.lei_01/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <ion-icon name="logo-instagram" class="text-4xl text-white"></ion-icon>
+              </a>
+            </li>
+            <li>
+              <a href="https://medium.com/@johnreycalesa" target="_blank" rel="noopener noreferrer">
+                <ion-icon name="logo-medium" class="text-4xl text-white"></ion-icon>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://stackoverflow.com/users/17191889/jeon-lei"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <ion-icon name="logo-stackoverflow" class="text-4xl text-white"></ion-icon>
+              </a>
+            </li>
+            <li>
+              <a href="https://x.com/calesajohn" target="_blank" rel="noopener noreferrer">
+                <ion-icon name="logo-twitter" class="text-4xl text-white"></ion-icon>
+              </a>
             </li>
           </ul>
         </div>
@@ -131,5 +154,9 @@ onMounted(() => {
   transition:
     opacity 0.3s ease,
     transform 0.3s ease;
+}
+
+li:hover {
+  transform: scale(1.25);
 }
 </style>

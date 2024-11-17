@@ -36,12 +36,7 @@ function toggleNav() {
   <nav class="p-4 sticky top-0 z-10 primary-background">
     <div class="container mx-auto flex items-center justify-between wrapper">
       <a class="flex items-center" href="#">
-        <img
-          src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
-          width="32"
-          height="32"
-          class="mr-2"
-        />
+        <img src="../assets/penguin.png" width="32" height="32" class="mr-2" />
         <!-- <span class="text-lg font-semibold">John Rey Calesa</span> -->
       </a>
       <button
