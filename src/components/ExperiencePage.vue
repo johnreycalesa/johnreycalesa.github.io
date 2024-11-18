@@ -28,6 +28,14 @@ const experiences = [
 
 const certificates = [
   {
+    name: 'Foundational C# with Microsoft ',
+    description:
+      'This certification program provided a solid foundation in C# programming, covering key concepts such as object-oriented programming, data structures, and basic software development principles. Through practical exercises and hands-on coding projects, I gained proficiency in writing, debugging, and optimizing C# applications. The certification, recognized by Microsoft, enhanced my ability to build robust, scalable solutions and reinforced my understanding of software development best practices in the C# environment.',
+    date: 'November 2024',
+    number: '—',
+    link: 'https://www.linkedin.com/in/calesajohnrey/'
+  },
+  {
     name: 'Certificate in Computer Technology',
     description:
       'This certificate program provided a comprehensive foundation in computer systems, software development, and IT infrastructure. It covered key topics such as programming languages, database management, network security, hardware, and troubleshooting. Through hands-on projects and coursework, I gained practical skills in technology implementation and problem-solving, preparing me for a career in the rapidly evolving field of computer science and technology.',
@@ -35,14 +43,6 @@ const certificates = [
     number: 'calesajohnrey-fcswm',
     link: 'https://cdn.bootstrapstudio.io/placeholders/1400x800.png'
   },
-  {
-    name: 'Foundational C# with Microsoft ',
-    description:
-      'This certification program provided a solid foundation in C# programming, covering key concepts such as object-oriented programming, data structures, and basic software development principles. Through practical exercises and hands-on coding projects, I gained proficiency in writing, debugging, and optimizing C# applications. The certification, recognized by Microsoft, enhanced my ability to build robust, scalable solutions and reinforced my understanding of software development best practices in the C# environment.',
-    date: 'November 2024',
-    number: '—',
-    link: 'https://www.linkedin.com/in/calesajohnrey/'
-  }
 ]
 
 onMounted(() => {
