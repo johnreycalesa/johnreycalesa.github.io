@@ -30,7 +30,10 @@ onMounted(() => {
             <h2 class="text-2xl font-bold mb-3">John Rey Calesa</h2>
             <p class="mb-4">Software Engineer</p>
             <div class="my-3 flex items-center">
-              <a class="bg-blue-500 text-white px-4 py-2 rounded mr-2 hover:bg-blue-600" href="#"
+              <a
+                class="bg-blue-500 text-white px-4 py-2 rounded mr-2 hover:bg-blue-600"
+                href="https://drive.google.com/file/d/1KjbruoDQD1Tp1gwnmAXyrEKatyePgLZy/view?usp=drive_link"
+                target="_blank"
                 >Resume</a
               >
               <p href="#" class="flex justify-center items-center gap-2 mx-4">

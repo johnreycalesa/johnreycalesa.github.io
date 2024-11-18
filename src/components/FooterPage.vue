@@ -79,51 +79,19 @@ onMounted(() => {
             </li>
           </ul>
           <ul class="list-none flex justify-center gap-4">
-            <li>
-              <a
-                href="https://www.facebook.com/john.rey.calesa/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <ion-icon name="logo-facebook" class="text-4xl text-white"></ion-icon>
-              </a>
-            </li>
-            <li>
+            <li class="icons">
               <a href="mailto:calesajohnrey@gmail.com" target="_blank" rel="noopener noreferrer">
                 <ion-icon name="mail-outline" class="text-4xl text-white"></ion-icon>
               </a>
             </li>
-            <li>
-              <a href="https://dribbble.com/john_rey2001" target="_blank" rel="noopener noreferrer">
-                <ion-icon name="logo-dribbble" class="text-4xl text-white"></ion-icon>
+            <li class="icons">
+              <a href="https://github.com/johnreycalesa" target="_blank" rel="noopener noreferrer">
+                <ion-icon name="logo-github" class="text-4xl text-white"></ion-icon>
               </a>
             </li>
-            <li>
-              <a
-                href="https://www.instagram.com/jeon.lei_01/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <ion-icon name="logo-instagram" class="text-4xl text-white"></ion-icon>
-              </a>
-            </li>
-            <li>
+            <li class="icons">
               <a href="https://medium.com/@johnreycalesa" target="_blank" rel="noopener noreferrer">
                 <ion-icon name="logo-medium" class="text-4xl text-white"></ion-icon>
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://stackoverflow.com/users/17191889/jeon-lei"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <ion-icon name="logo-stackoverflow" class="text-4xl text-white"></ion-icon>
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/calesajohn" target="_blank" rel="noopener noreferrer">
-                <ion-icon name="logo-twitter" class="text-4xl text-white"></ion-icon>
               </a>
             </li>
           </ul>
@@ -156,7 +124,7 @@ onMounted(() => {
     transform 0.3s ease;
 }
 
-li:hover {
+li.icons:hover {
   transform: scale(1.25);
 }
 </style>
