@@ -7,7 +7,7 @@ const experiences = [
     company_logo: 'photos/experience_1.png',
     company_logo_alt: 'Company Logo',
     position: 'Fullstack Web Developer',
-    start_date: 'February 2024',
+    start_date: 'January 2024',
     end_date: 'Ongoing',
     description:
       'I developed responsive web applications using Vue.js, CodeIgniter, and Tailwind CSS, collaborating with designers to implement user-friendly interfaces. I built scalable backend solutions with MySQL and Firebase, integrated secure APIs, and enhanced WordPress functionality. Additionally, I created dynamic GPS mapping features with Mapbox and developed cross-platform mobile apps using Ionic for Android and iOS.',
@@ -19,7 +19,7 @@ const experiences = [
     company_logo_alt: 'Company Logo',
     position: 'Software Engineer Intern',
     start_date: 'February 2023',
-    end_date: 'November 2023',
+    end_date: 'December 2023',
     description:
       'I developed automation release applications using C#, .NET, and React, streamlining processes and reducing manual input by 40%. By applying Agile and Scrum methodologies, I collaborated with cross-functional teams to ensure high-quality software through thorough requirement gathering and rigorous testing. Additionally, I conducted hands-on manual testing, cutting testing time by 30%, and delivering reliable, user-friendly applications for multi-functional printers.',
     skills: ['HTML', 'CSS', 'JavaScript']
@@ -42,7 +42,7 @@ const certificates = [
     date: 'December 2023',
     number: 'calesajohnrey-fcswm',
     link: 'https://cdn.bootstrapstudio.io/placeholders/1400x800.png'
-  },
+  }
 ]
 
 onMounted(() => {

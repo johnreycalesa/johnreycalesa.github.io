@@ -6,11 +6,7 @@ const projects = [
     name: 'Speedy Delivery and Repair',
     year: 'February 2024 - Ongoing',
     description:
-<<<<<<< Updated upstream
       'Developed a full-stack responsive website for a delivery and repair business based in South Carolina, USA',
-=======
-      'Developed a full-stack responsive website for a delivery and repair business based in the United States',
->>>>>>> Stashed changes
     link: 'https://speedyrepairanddelivery.com/',
     image: 'photos/project_1.jpeg',
     alt: 'Speedy Delivery and Repair`s Icon'
