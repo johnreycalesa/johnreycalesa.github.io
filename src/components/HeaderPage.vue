@@ -32,7 +32,7 @@ onMounted(() => {
             <div class="my-3 flex items-center">
               <a
                 class="bg-blue-500 text-white px-4 py-2 rounded mr-2 hover:bg-blue-600"
-                href="https://drive.google.com/file/d/1KjbruoDQD1Tp1gwnmAXyrEKatyePgLZy/view?usp=drive_link"
+                href="https://docs.google.com/document/d/1GiBZuU37qbIvrUoHWWPZQapfTmA8nPZPsWLmPvNFEv4/edit?usp=sharing"
                 target="_blank"
                 >Resume</a
               >
