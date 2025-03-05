@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted } from 'vue'
+import { onMounted, ref, computed } from 'vue'
 
 onMounted(() => {
   const sectionElement = document.querySelector('.section-animate')
@@ -19,6 +19,20 @@ onMounted(() => {
 
   observer.observe(sectionElement)
 })
+
+const dateStarted = ref(new Date('2023-02-27'))
+const currentDate = ref(new Date())
+
+const formattedYears = computed(() => {
+  const diff = currentDate.value - dateStarted.value;
+  const years = diff / (1000 * 60 * 60 * 24 * 365)
+  const roundedOff = years.toFixed(1); 
+  if (roundedOff % 1 === 0) {
+    return Math.floor(roundedOff)
+  } else {
+    return roundedOff
+  }
+})
 </script>
 
 <template>
@@ -37,7 +51,7 @@ onMounted(() => {
                 >Resume</a
               >
               <p href="#" class="flex justify-center items-center gap-2 mx-4">
-                1+ years
+                {{ formattedYears }} years
                 <span class="material-symbols-outlined"> verified </span>
               </p>
             </div>

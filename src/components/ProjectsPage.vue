@@ -4,7 +4,7 @@ import { onMounted } from 'vue'
 const projects = [
   {
     name: 'Speedy Delivery and Repair',
-    year: 'February 2024 - Ongoing',
+    year: 'February 2024 - December 2024',
     description:
       'Developed a full-stack responsive website for a delivery and repair business based in South Carolina, USA',
     link: 'https://speedyrepairanddelivery.com/',

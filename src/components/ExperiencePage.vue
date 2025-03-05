@@ -8,7 +8,7 @@ const experiences = [
     company_logo_alt: 'Company Logo',
     position: 'Fullstack Web Developer',
     start_date: 'January 2024',
-    end_date: 'Ongoing',
+    end_date: 'December 2024',
     description:
       'I developed responsive web applications using Vue.js, CodeIgniter, and Tailwind CSS, collaborating with designers to implement user-friendly interfaces. I built scalable backend solutions with MySQL and Firebase, integrated secure APIs, and enhanced WordPress functionality. Additionally, I created dynamic GPS mapping features with Mapbox and developed cross-platform mobile apps using Ionic for Android and iOS.',
     skills: ['HTML', 'CSS', 'JavaScript']
