@@ -1,1 +1,0 @@
-import{_ as r,c as t,a as o,o as n}from"./index-W-cdikwL.js";const s={},a={class:"h-screen"};function c(l,e){return n(),t("main",a,e[0]||(e[0]=[o("h1",{class:"text-3xl font-bold underline"},"Home arts",-1),o("a",{href:"/",rel:"noopener noreferrer"},"Home",-1)]))}const _=r(s,[["render",c]]);export{_ as default};
