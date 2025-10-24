@@ -47,24 +47,15 @@ function clearSelection() {
 }
 
 onMounted(() => {
-  const elements = document.querySelectorAll('.skill-card')
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry, index) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => {
-            entry.target.classList.add('skill-visible')
-          }, index * 50)
-        }
-      })
-    },
-    { threshold: 0.2 }
-  )
-
-  elements.forEach((el) => {
-    observer.observe(el)
-  })
+  // Initial animation for first load
+  setTimeout(() => {
+    const elements = document.querySelectorAll('.skill-card')
+    elements.forEach((el, index) => {
+      setTimeout(() => {
+        el.classList.add('skill-visible')
+      }, index * 50)
+    })
+  }, 100)
 })
 </script>
 
@@ -298,10 +289,22 @@ onMounted(() => {
   border-radius: 16px;
   padding: 2rem;
   transition: all 0.3s ease;
-  opacity: 0;
-  transform: translateY(30px);
+  opacity: 1;
+  transform: translateY(0);
   cursor: pointer;
   overflow: hidden;
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .skill-card.skill-visible {
