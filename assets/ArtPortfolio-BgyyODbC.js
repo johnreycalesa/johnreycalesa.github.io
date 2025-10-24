@@ -1,0 +1,1 @@
+import{_ as o,c as n,a as e,o as t}from"./index-ChRHTPY7.js";const a={},s={class:"h-screen",role:"main"};function c(l,r){return t(),n("main",s,r[0]||(r[0]=[e("h1",{class:"text-3xl font-bold underline"},"Art Portfolio",-1),e("nav",{"aria-label":"Breadcrumb"},[e("a",{href:"/",rel:"noopener noreferrer"},"Home")],-1)]))}const i=o(a,[["render",c]]);export{i as default};
