@@ -57,7 +57,7 @@ const formattedYears = computed(() => {
             </div>
           </div>
           <div class="md:w-1/2">
-            <img class="w-full h-full object-cover" src="../assets/id.jpg" alt="Image" />
+            <img class="w-full h-full object-cover" src="../assets/id.jpg" alt="John Rey Calesa - Software Engineer Professional Photo" />
           </div>
         </div>
       </div>

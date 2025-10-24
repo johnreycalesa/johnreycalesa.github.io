@@ -89,8 +89,8 @@ onMounted(() => {
       </div>
     </div>
     <div class="mt-4 w-full flex justify-end">
-      <a href='https://ko-fi.com/U6U0124XJF' target='_blank'><img height='55' style='border:0px;height:55px;'
-          src='/photos/kofi.gif' border='0' alt='Buy Me a Coffee at ko-fi.com'
+      <a href='https://ko-fi.com/U6U0124XJF' target='_blank' rel='noopener noreferrer'><img height='55' style='border:0px;height:55px;'
+          src='/photos/kofi.gif' border='0' alt='Support John Rey Calesa - Buy Me a Coffee at Ko-fi'
           class="icons bg-white rounded-full p-2" /></a>
     </div>
   </footer>

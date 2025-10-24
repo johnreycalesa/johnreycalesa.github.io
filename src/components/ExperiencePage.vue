@@ -87,7 +87,7 @@ onMounted(() => {
         <img
           class="w-full h-80 object-cover border-2 border-gray-300 rounded-lg"
           :src="experience.company_logo"
-          :alt="experience.company_logo_alt"
+          :alt="`${experience.company_name} - ${experience.position}`"
         />
         <div class="p-4 flex justify-center items-start flex-col">
           <h4 class="text-lg font-semibold">{{ experience.position }}</h4>
