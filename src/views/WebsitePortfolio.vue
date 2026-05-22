@@ -40,10 +40,7 @@ onMounted(() => {
 function handleIntersect(entries) {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
-      entry.target.classList.add('show')
       activeSection.value = entry.target.id
-    } else {
-      entry.target.classList.remove('show')
     }
   })
 }
@@ -515,18 +512,6 @@ function closeNav() {
 .slide-enter-from .mobile-sidebar-content,
 .slide-leave-to .mobile-sidebar-content {
   transform: translateX(100%);
-}
-
-/* Sections */
-.section-container {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.section-container.show {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 /* Responsive */
