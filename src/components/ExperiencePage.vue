@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, ref } from 'vue'
+import { onMounted, reactive, ref } from 'vue'
 
 const experiences = [
   {
@@ -65,29 +65,42 @@ const certificates = [
 
 const expandedExperience = ref(null)
 
+// Track visibility reactively so Vue owns the `.visible` class. Using
+// classList.add() directly gets wiped whenever Vue re-patches the element's
+// class (e.g. on expand/collapse), causing the card to disappear.
+const visibleExperiences = reactive(new Set())
+const visibleCertificates = reactive(new Set())
+
 function toggleExperience(index) {
   expandedExperience.value = expandedExperience.value === index ? null : index
 }
 
 onMounted(() => {
-  const experienceElements = document.querySelectorAll('.experience-card')
-  const certificateElements = document.querySelectorAll('.certificate-card')
+  const cards = document.querySelectorAll('.experience-card, .certificate-card')
 
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry, idx) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => {
-            entry.target.classList.add('visible')
-          }, idx * 150)
-        }
+        if (!entry.isIntersecting) return
+
+        const index = Number(entry.target.dataset.index)
+        const isExperience = entry.target.classList.contains('experience-card')
+
+        setTimeout(() => {
+          if (isExperience) {
+            visibleExperiences.add(index)
+          } else {
+            visibleCertificates.add(index)
+          }
+        }, idx * 150)
+
+        observer.unobserve(entry.target)
       })
     },
     { threshold: 0.2 }
   )
 
-  experienceElements.forEach((el) => observer.observe(el))
-  certificateElements.forEach((el) => observer.observe(el))
+  cards.forEach((el) => observer.observe(el))
 })
 </script>
 
@@ -109,12 +122,8 @@ onMounted(() => {
       <div class="timeline-wrapper">
         <div class="timeline-line"></div>
 
-        <div
-          v-for="(experience, index) in experiences"
-          :key="index"
-          class="experience-card"
-          :class="{ 'experience-expanded': expandedExperience === index }"
-        >
+        <div v-for="(experience, index) in experiences" :key="index" :data-index="index" class="experience-card"
+          :class="{ 'experience-expanded': expandedExperience === index, visible: visibleExperiences.has(index) }">
           <!-- Timeline Node -->
           <div class="timeline-node">
             <div class="timeline-dot"></div>
@@ -125,12 +134,8 @@ onMounted(() => {
             <div class="experience-main">
               <!-- Company Image -->
               <div class="company-image-wrapper">
-                <img
-                  class="company-image"
-                  :src="experience.company_logo"
-                  :alt="experience.company_logo_alt"
-                  loading="lazy"
-                />
+                <img class="company-image" :src="experience.company_logo" :alt="experience.company_logo_alt"
+                  loading="lazy" />
               </div>
 
               <!-- Experience Info -->
@@ -144,30 +149,18 @@ onMounted(() => {
                       <span class="experience-duration">{{ experience.duration }}</span>
                     </div>
                   </div>
-                  <button
-                    class="expand-button"
-                    @click="toggleExperience(index)"
-                    aria-label="Toggle details"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="20"
-                      height="20"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      :class="{ 'rotate-180': expandedExperience === index }"
-                    >
+                  <button class="expand-button" @click="toggleExperience(index)" aria-label="Toggle details">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                      :class="{ 'rotate-180': expandedExperience === index }">
                       <polyline points="6 9 12 15 18 9"></polyline>
                     </svg>
                   </button>
                 </div>
 
                 <div class="date-range">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
                     <line x1="16" y1="2" x2="16" y2="6"></line>
                     <line x1="8" y1="2" x2="8" y2="6"></line>
@@ -185,7 +178,8 @@ onMounted(() => {
                       <h4 class="highlights-title">Key Achievements</h4>
                       <ul class="highlights-list">
                         <li v-for="(highlight, idx) in experience.highlights" :key="idx" class="highlight-item">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <polyline points="20 6 9 17 4 12"></polyline>
                           </svg>
                           <span>{{ highlight }}</span>
@@ -217,13 +211,11 @@ onMounted(() => {
         </div>
 
         <div class="certificates-grid">
-          <div
-            v-for="(certificate, index) in certificates"
-            :key="index"
-            class="certificate-card"
-          >
+          <div v-for="(certificate, index) in certificates" :key="index" :data-index="index" class="certificate-card"
+            :class="{ visible: visibleCertificates.has(index) }">
             <div class="certificate-icon-wrapper">
-              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="12" cy="10" r="3"></circle>
                 <path d="M12 2v4"></path>
                 <path d="M12 18v4"></path>
@@ -243,7 +235,8 @@ onMounted(() => {
 
               <div class="certificate-meta">
                 <div class="certificate-date">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
                     <line x1="16" y1="2" x2="16" y2="6"></line>
                     <line x1="8" y1="2" x2="8" y2="6"></line>
@@ -255,14 +248,10 @@ onMounted(() => {
                 <span class="certificate-number">{{ certificate.number }}</span>
               </div>
 
-              <a
-                :href="certificate.link"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="certificate-link"
-              >
+              <a :href="certificate.link" target="_blank" rel="noopener noreferrer" class="certificate-link">
                 <span>View Certificate</span>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
                   <polyline points="15 3 21 3 21 9"></polyline>
                   <line x1="10" y1="14" x2="21" y2="3"></line>
@@ -483,6 +472,10 @@ onMounted(() => {
 
 .expand-button svg {
   transition: transform 0.3s ease;
+}
+
+.expand-button svg.rotate-180 {
+  transform: rotate(180deg);
 }
 
 .date-range {
