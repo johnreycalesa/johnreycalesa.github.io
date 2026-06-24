@@ -3,8 +3,21 @@ import { onMounted, ref } from 'vue'
 
 const projects = [
   {
+    name: 'AnatomyQuest',
+    year: 'January 2026 - March 2026',
+    description:
+      'Contributed to an open-source anatomy education platform built in collaboration with underprivileged communities, where site revenue is reinvested to support them directly',
+    details:
+      'Developed interactive, image-driven anatomy information pages with Next.js 14 and TypeScript. Focused on comprehensive content structure, accessible UI with Tailwind CSS, and a scalable architecture that lets educators and contributors extend the resource library. Licensed under CC-BY-SA-4.0.',
+    link: 'https://anatomyquest.vercel.app/',
+    image: 'photos/project_6.png',
+    alt: 'AnatomyQuest website screenshot',
+    category: 'Educational Platform',
+    technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS']
+  },
+  {
     name: 'Camino Code',
-    year: 'March 2026 - Present',
+    year: 'March 2025 - October 2025',
     description:
       'Contributed as a Software Engineer to the official company website of Camino Code, an Applied AI and Product Engineering studio based in New Jersey, USA',
     details:
@@ -106,30 +119,16 @@ onMounted(() => {
 
       <!-- Projects Grid -->
       <div class="projects-grid">
-        <article
-          v-for="(project, index) in projects"
-          :key="index"
-          class="project-card"
-          @mouseenter="hoveredProject = index"
-          @mouseleave="hoveredProject = null"
-        >
+        <article v-for="(project, index) in projects" :key="index" class="project-card"
+          @mouseenter="hoveredProject = index" @mouseleave="hoveredProject = null">
           <!-- Project Image -->
           <div class="project-image-wrapper">
-            <img
-              class="project-image"
-              :src="project.image"
-              :alt="project.alt"
-              loading="lazy"
-            />
+            <img class="project-image" :src="project.image" :alt="project.alt" loading="lazy" />
             <div class="image-overlay" :class="{ 'overlay-visible': hoveredProject === index }">
-              <a
-                :href="project.link"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="view-project-button"
-              >
+              <a :href="project.link" target="_blank" rel="noopener noreferrer" class="view-project-button">
                 <span>View Live Site</span>
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
                   <polyline points="15 3 21 3 21 9"></polyline>
                   <line x1="10" y1="14" x2="21" y2="3"></line>
@@ -139,7 +138,8 @@ onMounted(() => {
 
             <!-- Category Badge -->
             <div class="category-badge">
-              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
                 <line x1="8" y1="21" x2="16" y2="21"></line>
                 <line x1="12" y1="17" x2="12" y2="21"></line>
@@ -153,7 +153,8 @@ onMounted(() => {
             <div class="project-header">
               <h3 class="project-title">{{ project.name }}</h3>
               <div class="project-year">
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
                   <line x1="16" y1="2" x2="16" y2="6"></line>
                   <line x1="8" y1="2" x2="8" y2="6"></line>
@@ -173,14 +174,10 @@ onMounted(() => {
             </div>
 
             <div class="project-footer">
-              <a
-                :href="project.link"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="project-link"
-              >
+              <a :href="project.link" target="_blank" rel="noopener noreferrer" class="project-link">
                 <span>Learn More</span>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <line x1="5" y1="12" x2="19" y2="12"></line>
                   <polyline points="12 5 19 12 12 19"></polyline>
                 </svg>
@@ -199,7 +196,8 @@ onMounted(() => {
           </p>
           <a href="#footer" class="cta-button">
             <span>Get in Touch</span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <line x1="22" y1="2" x2="11" y2="13"></line>
               <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
             </svg>
