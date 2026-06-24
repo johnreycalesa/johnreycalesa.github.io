@@ -3,6 +3,19 @@ import { onMounted, ref } from 'vue'
 
 const projects = [
   {
+    name: 'Camino Code',
+    year: 'March 2026 - Present',
+    description:
+      'Contributed as a Software Engineer to the official company website of Camino Code, an Applied AI and Product Engineering studio based in New Jersey, USA',
+    details:
+      'Built a high-performance, SEO-ready marketing site with Next.js 15 App Router and React 18. Implemented interactive 3D scenes with Three.js and React Three Fiber, GSAP-driven animations, Locomotive smooth scrolling, dynamic case study pages, and WCAG-compliant accessibility.',
+    link: 'https://caminocode.com/',
+    image: 'photos/project_5.png',
+    alt: 'Camino Code website screenshot',
+    category: 'Corporate Website',
+    technologies: ['Next.js', 'React', 'Tailwind CSS', 'Three.js', 'GSAP']
+  },
+  {
     name: 'Daniel Avila Portfolio',
     year: 'May 2026 - June 2026',
     description:
