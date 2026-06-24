@@ -3,6 +3,19 @@ import { onMounted, ref } from 'vue'
 
 const projects = [
   {
+    name: 'Daniel Avila Portfolio',
+    year: 'May 2026 - June 2026',
+    description:
+      'Designed and developed a professional personal portfolio for an IT Support Professional based in the USA',
+    details:
+      'Clean, modern, mobile-optimized portfolio showcasing expertise, certifications, and career journey. Built with Next.js and TypeScript, featuring a tailored color palette, custom typography (Monda + Quicksand), and SEO-ready architecture for fast page loads.',
+    link: 'https://www.danielavila.tech/',
+    image: 'photos/project_4.png',
+    alt: 'Daniel Avila portfolio website screenshot',
+    category: 'Personal Portfolio',
+    technologies: ['Next.js', 'TypeScript', 'JavaScript', 'CSS']
+  },
+  {
     name: 'Speedy Delivery and Repair',
     year: 'February 2024 - December 2024',
     description:

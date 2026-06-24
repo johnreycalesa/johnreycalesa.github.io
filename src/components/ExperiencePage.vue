@@ -318,16 +318,22 @@ onMounted(() => {
 
 /* Timeline */
 .timeline-wrapper {
+  /* Shared horizontal axis for the line and the dots. Both elements
+     center on this value via translateX(-50%), so the dot's borders and
+     box-shadow no longer push it off-axis from the 2px line. */
+  --timeline-axis: 1rem;
+  --timeline-gap: 2rem;
   position: relative;
-  padding-left: 2rem;
+  padding-left: calc(var(--timeline-axis) + var(--timeline-gap));
 }
 
 .timeline-line {
   position: absolute;
-  left: 0.5rem;
+  left: var(--timeline-axis);
   top: 2rem;
   bottom: 2rem;
   width: 2px;
+  transform: translateX(-50%);
   background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
 }
 
@@ -347,13 +353,19 @@ onMounted(() => {
 
 .timeline-node {
   position: absolute;
-  left: -1.5rem;
+  /* Card's left edge sits at the wrapper's padding-left. Offsetting back
+     by --timeline-gap lands the node on --timeline-axis; translateX(-50%)
+     then centers it. */
+  left: calc(var(--timeline-gap) * -1);
   top: 2rem;
+  transform: translateX(-50%);
+  line-height: 0;
 }
 
 .timeline-dot {
-  width: 1rem;
-  height: 1rem;
+  box-sizing: border-box;
+  width: 1.25rem;
+  height: 1.25rem;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   border: 3px solid #f8fafc;
   border-radius: 50%;
@@ -742,7 +754,8 @@ onMounted(() => {
   }
 
   .timeline-wrapper {
-    padding-left: 1.5rem;
+    --timeline-axis: 0.75rem;
+    --timeline-gap: 1.25rem;
   }
 
   .experience-main {
