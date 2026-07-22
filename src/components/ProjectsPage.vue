@@ -11,7 +11,7 @@ const projects = [
       'Developed interactive, image-driven anatomy information pages with Next.js 14 and TypeScript. Focused on comprehensive content structure, accessible UI with Tailwind CSS, and a scalable architecture that lets educators and contributors extend the resource library. Licensed under CC-BY-SA-4.0.',
     link: 'https://anatomyquest.vercel.app/',
     image: 'photos/project_6.png',
-    alt: 'AnatomyQuest website screenshot',
+    alt: 'AnatomyQuest website',
     category: 'Educational Platform',
     technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS']
   },
