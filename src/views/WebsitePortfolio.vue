@@ -106,7 +106,7 @@ function closeNav() {
           </li>
         </ul>
         <a class="cta-button" href="#footer">
-          <span>Get in Touch</span>
+          <span>Contact me</span>
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <line x1="7" y1="17" x2="17" y2="7"></line>
             <polyline points="7 7 17 7 17 17"></polyline>
@@ -117,7 +117,7 @@ function closeNav() {
       <!-- Mobile Menu Button -->
       <button
         class="mobile-menu-button"
-        aria-label="Toggle navigation"
+        aria-label="Open the menu"
         @click="toggleNav"
       >
         <div class="hamburger" :class="{ 'hamburger-open': isNavOpen }">
@@ -134,8 +134,8 @@ function closeNav() {
         <div class="mobile-sidebar-overlay" @click="closeNav"></div>
         <div class="mobile-sidebar-content">
           <div class="mobile-nav-header">
-            <span class="mobile-nav-title">Navigation</span>
-            <button class="mobile-close-button" @click="closeNav" aria-label="Close navigation">
+            <span class="mobile-nav-title">Menu</span>
+            <button class="mobile-close-button" @click="closeNav" aria-label="Close the menu">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <line x1="18" y1="6" x2="6" y2="18"></line>
                 <line x1="6" y1="6" x2="18" y2="18"></line>
@@ -165,7 +165,7 @@ function closeNav() {
           </ul>
 
           <a class="mobile-cta-button" href="#footer" @click="closeNav">
-            <span>Get in Touch</span>
+            <span>Contact me</span>
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <line x1="7" y1="17" x2="17" y2="7"></line>
               <polyline points="7 7 17 7 17 17"></polyline>
