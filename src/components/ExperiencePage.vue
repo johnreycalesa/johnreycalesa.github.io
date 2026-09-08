@@ -1,51 +1,121 @@
 <script setup>
-import { onMounted, reactive, ref } from 'vue'
+import { computed, onMounted, reactive, ref } from 'vue'
 
-const experiences = [
+const today = new Date()
+
+// Jobs that are still ongoing shouldn't show a duration that slowly goes
+// stale, so we work it out from the start date every time the page loads.
+function durationSince(isoStartDate) {
+  const start = new Date(isoStartDate)
+  const totalMonths = Math.max(
+    (today.getFullYear() - start.getFullYear()) * 12 + (today.getMonth() - start.getMonth()),
+    0
+  )
+  const years = Math.floor(totalMonths / 12)
+  const months = totalMonths % 12
+  const parts = []
+
+  if (years > 0) parts.push(`${years} year${years > 1 ? 's' : ''}`)
+  if (months > 0) parts.push(`${months} month${months > 1 ? 's' : ''}`)
+
+  return parts.length ? parts.join(' ') : 'Less than a month'
+}
+
+const experiences = computed(() => [
+  {
+    company_name: 'Transparent Energy',
+    company_initials: 'TE',
+    company_logo: 'photos/experience_4.png',
+    company_logo_alt: 'Transparent Energy logo',
+    position: 'Senior Software Engineer',
+    location: 'New Jersey, United States (Remote)',
+    start_date: 'July 2025',
+    end_date: 'Present',
+    duration: durationSince('2025-07-07'),
+    description:
+      'I help build the web app that this company uses to sell energy plans to businesses. I work on both halves of it: the screens people click on (Vue.js) and the hidden part that saves and moves all the information (Laravel and PHP). Every week I pick up 3 to 8 tasks and carry each one all the way from the first plan to the moment it goes live for real users.',
+    highlights: [
+      'Finish 3 to 8 tasks a week, from planning to testing to going live',
+      'Built reports that show the sales team how much money each deal is worth',
+      'Rebuilt the quote-to-contract steps so details fill in on their own instead of being typed by hand',
+      'Made the app save edits 12 times faster, from 60 seconds down to 5',
+      'Put every client file (quotes, contracts, and invoices) in one place with simple tabs',
+      'Help other teams with quick website fixes, usually done within about 5 hours'
+    ],
+    technologies: ['PHP', 'Laravel', 'Vue.js', 'JavaScript', 'MySQL', 'GitHub', 'Jira']
+  },
+  {
+    company_name: 'Cloudstaff Philippines Inc.',
+    company_initials: 'CS',
+    company_logo: 'photos/experience_3.png',
+    company_logo_alt: 'Cloudstaff Philippines Inc. logo',
+    position: 'Senior Software Engineer',
+    location: 'Cebu, Philippines',
+    start_date: 'March 2025',
+    end_date: 'July 2025',
+    duration: '5 months',
+    description:
+      'I worked on a platform that insurance brokers use to sell policies and keep track of their sales. Most of my job was the hidden part of the app: the code that sends and saves information, and the plan for how that information is stored. I also built screens with Vue.js and drew the layouts in Figma first, so the team and the client could agree on the idea before anyone wrote code.',
+    highlights: [
+      'Built 20+ ways for the app to send and receive data (REST API endpoints)',
+      'Added "Sign in with Google" so users do not need to remember another password',
+      'Designed a database of 20+ connected tables to hold all the app data',
+      'Built the screens in Vue.js and hooked them up to the data behind them',
+      'Drew the app layouts in Figma so everyone agreed on the plan before coding',
+      'Checked teammates’ code before it was merged to keep quality high'
+    ],
+    technologies: ['Python', 'Django', 'Node.js', 'Vue.js', 'MySQL', 'OAuth 2.0', 'Figma']
+  },
   {
     company_name: 'Proweaver Inc.',
+    company_initials: 'PW',
     company_logo: 'photos/experience_1.png',
-    company_logo_alt: 'Proweaver Inc. Logo',
-    position: 'Fullstack Web Developer',
+    company_logo_alt: 'Proweaver Inc. logo',
+    position: 'Full Stack Software Engineer (Web and Mobile)',
+    location: 'Cebu, Philippines',
     start_date: 'January 2024',
     end_date: 'December 2024',
     duration: '1 year',
     description:
-      'I developed responsive web applications using Vue.js, CodeIgniter, and Tailwind CSS, collaborating with designers to implement user-friendly interfaces. I built scalable backend solutions with MySQL and Firebase, integrated secure APIs, and enhanced WordPress functionality. Additionally, I created dynamic GPS mapping features with Mapbox and developed cross-platform mobile apps using Ionic for Android and iOS.',
+      'I built websites for clients that look and work well on phones, tablets, and computers. I turned the designers’ drawings into real, working pages, then wrote the code behind them that stores and loads the data. I also built a phone app for both Android and iPhone that shows a driver moving on a live map.',
     highlights: [
-      'Built responsive web applications with Vue.js and Tailwind CSS',
-      'Developed scalable backend solutions with MySQL and Firebase',
-      'Created GPS mapping features using Mapbox',
-      'Built cross-platform mobile apps with Ionic'
+      'Built websites with Vue.js and Tailwind CSS that fit any screen size',
+      'Wrote the behind-the-scenes code and data storage using MySQL and Firebase',
+      'Added live map tracking with Mapbox so customers can see where a driver is',
+      'Shipped one phone app to both the Google Play Store and the Apple App Store',
+      'Updated and improved older client websites first built by other developers'
     ],
     technologies: ['Vue.js', 'CodeIgniter', 'Tailwind CSS', 'MySQL', 'Firebase', 'Mapbox', 'Ionic']
   },
   {
     company_name: 'KYOCERA Document Solutions Inc.',
+    company_initials: 'KY',
     company_logo: 'photos/experience_2.png',
-    company_logo_alt: 'KYOCERA Document Solutions Inc. Logo',
-    position: 'Software Engineer Intern',
+    company_logo_alt: 'KYOCERA Document Solutions Inc. logo',
+    position: 'Software Engineer',
+    location: 'Cebu, Philippines',
     start_date: 'February 2023',
     end_date: 'December 2023',
     duration: '11 months',
     description:
-      'I developed automation release applications using C#, .NET, and React, streamlining processes and reducing manual input by 40%. By applying Agile and Scrum methodologies, I collaborated with cross-functional teams to ensure high-quality software through thorough requirement gathering and rigorous testing. Additionally, I conducted hands-on manual testing, cutting testing time by 30%, and delivering reliable, user-friendly applications for multi-functional printers.',
+      'I made an internal tool that does the boring, repeated steps the testing team used to do by hand, which saved them a lot of time. I also added new features to the software that runs on big office printers, and I stepped in as the main developer for that software whenever the lead was away.',
     highlights: [
-      'Reduced manual input by 40% through automation',
-      'Applied Agile and Scrum methodologies',
-      'Cut testing time by 30% through hands-on testing',
-      'Delivered reliable applications for multi-functional printers'
+      'Built a tool in C# and React that cut manual typing by about 40%',
+      'Cut the time needed to test a new version by about 30%',
+      'Added 5+ new features, including in-app search, to the printer software',
+      'Took over as main developer for the printer software when the lead was away',
+      'Tested every release against a checklist before it reached customers'
     ],
-    technologies: ['C#', '.NET', 'React', 'Agile', 'Scrum']
+    technologies: ['C#', '.NET', 'React', 'Java', 'Agile', 'Scrum']
   }
-]
+])
 
 const certificates = [
   {
     name: 'Foundational C# with Microsoft',
-    issuer: 'Microsoft & freeCodeCamp',
+    issuer: 'Microsoft and freeCodeCamp',
     description:
-      'This certification program provided a solid foundation in C# programming, covering key concepts such as object-oriented programming, data structures, and basic software development principles. Through practical exercises and hands-on coding projects, I gained proficiency in writing, debugging, and optimizing C# applications.',
+      'A course that taught me the C# programming language from the ground up: how to organize code into reusable pieces, how to store lists of information, and how to find and fix mistakes. I finished it by writing and correcting real code, not just reading about it.',
     date: 'November 2024',
     number: 'calesajohnrey-fcswm',
     link: 'https://www.freecodecamp.org/certification/calesajohnrey/foundational-c-sharp-with-microsoft',
@@ -53,10 +123,10 @@ const certificates = [
   },
   {
     name: 'Certificate in Computer Technology',
-    issuer: 'Educational Institution',
+    issuer: 'University of San Carlos',
     description:
-      'This certificate program provided a comprehensive foundation in computer systems, software development, and IT infrastructure. It covered key topics such as programming languages, database management, network security, hardware, and troubleshooting. Through hands-on projects and coursework, I gained practical skills in technology implementation and problem-solving.',
-    date: 'December 2023',
+      'A two-year program covering the main parts of working with computers: writing code, building websites, storing information in databases, keeping systems safe, and fixing hardware problems. Most of the learning came from real projects rather than lectures.',
+    date: 'January 2024',
     number: '—',
     link: 'https://www.linkedin.com/in/calesajohnrey/details/certifications/',
     icon: 'school'
@@ -70,6 +140,10 @@ const expandedExperience = ref(null)
 // class (e.g. on expand/collapse), causing the card to disappear.
 const visibleExperiences = reactive(new Set())
 const visibleCertificates = reactive(new Set())
+
+// A logo file may not exist yet for a newly added company, so fall back to
+// the initials tile instead of showing a broken image.
+const failedLogos = reactive(new Set())
 
 function toggleExperience(index) {
   expandedExperience.value = expandedExperience.value === index ? null : index
@@ -110,10 +184,11 @@ onMounted(() => {
       <!-- Experience Header -->
       <div class="section-header">
         <div class="header-content">
-          <span class="section-badge">Professional Journey</span>
-          <h2 class="section-title">Experience & Achievements</h2>
+          <span class="section-badge">My Work Journey</span>
+          <h2 class="section-title">Where I Have Worked</h2>
           <p class="section-description">
-            A track record of delivering impactful solutions across diverse projects and technologies
+            The companies I have worked with, what I built while I was there, and the tools I used to
+            build it.
           </p>
         </div>
       </div>
@@ -134,8 +209,12 @@ onMounted(() => {
             <div class="experience-main">
               <!-- Company Image -->
               <div class="company-image-wrapper">
-                <img class="company-image" :src="experience.company_logo" :alt="experience.company_logo_alt"
-                  loading="lazy" />
+                <img v-if="experience.company_logo && !failedLogos.has(index)" class="company-image"
+                  :src="experience.company_logo" :alt="experience.company_logo_alt" loading="lazy"
+                  @error="failedLogos.add(index)" />
+                <div v-else class="company-fallback" :aria-label="experience.company_logo_alt" role="img">
+                  {{ experience.company_initials }}
+                </div>
               </div>
 
               <!-- Experience Info -->
@@ -149,7 +228,8 @@ onMounted(() => {
                       <span class="experience-duration">{{ experience.duration }}</span>
                     </div>
                   </div>
-                  <button class="expand-button" @click="toggleExperience(index)" aria-label="Toggle details">
+                  <button class="expand-button" @click="toggleExperience(index)"
+                    aria-label="Show or hide the details of this job">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
                       stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                       :class="{ 'rotate-180': expandedExperience === index }">
@@ -167,6 +247,8 @@ onMounted(() => {
                     <line x1="3" y1="10" x2="21" y2="10"></line>
                   </svg>
                   <span>{{ experience.start_date }} - {{ experience.end_date }}</span>
+                  <span class="date-separator">•</span>
+                  <span>{{ experience.location }}</span>
                 </div>
 
                 <p class="experience-description">{{ experience.description }}</p>
@@ -175,7 +257,7 @@ onMounted(() => {
                 <Transition name="expand">
                   <div v-if="expandedExperience === index" class="expanded-content">
                     <div class="highlights-section">
-                      <h4 class="highlights-title">Key Achievements</h4>
+                      <h4 class="highlights-title">What I Did There</h4>
                       <ul class="highlights-list">
                         <li v-for="(highlight, idx) in experience.highlights" :key="idx" class="highlight-item">
                           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
@@ -188,7 +270,7 @@ onMounted(() => {
                     </div>
 
                     <div class="technologies-section">
-                      <h4 class="technologies-title">Technologies Used</h4>
+                      <h4 class="technologies-title">Tools I Used</h4>
                       <div class="technologies-tags">
                         <span v-for="(tech, idx) in experience.technologies" :key="idx" class="tech-tag">
                           {{ tech }}
@@ -206,8 +288,8 @@ onMounted(() => {
       <!-- Certificates Section -->
       <div class="certificates-section">
         <div class="certificates-header">
-          <h3 class="certificates-title">Certifications</h3>
-          <p class="certificates-subtitle">Professional credentials and achievements</p>
+          <h3 class="certificates-title">Courses and Certificates</h3>
+          <p class="certificates-subtitle">Programs I finished, and the proof that I did</p>
         </div>
 
         <div class="certificates-grid">
@@ -249,7 +331,7 @@ onMounted(() => {
               </div>
 
               <a :href="certificate.link" target="_blank" rel="noopener noreferrer" class="certificate-link">
-                <span>View Certificate</span>
+                <span>See the certificate</span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
                   stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
@@ -330,11 +412,20 @@ onMounted(() => {
 .timeline-line {
   position: absolute;
   left: var(--timeline-axis);
-  top: 2rem;
-  bottom: 2rem;
+  /* Spans the whole timeline and fades out at both ends. Card heights change
+     when a card is expanded, so the first and last dots move; the fade keeps
+     the ends looking deliberate wherever those dots land. */
+  top: 0;
+  bottom: 0;
   width: 2px;
   transform: translateX(-50%);
-  background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(102, 126, 234, 0) 0%,
+    #667eea 12%,
+    #764ba2 88%,
+    rgba(118, 75, 162, 0) 100%
+  );
 }
 
 /* Experience Card */
@@ -354,11 +445,12 @@ onMounted(() => {
 .timeline-node {
   position: absolute;
   /* Card's left edge sits at the wrapper's padding-left. Offsetting back
-     by --timeline-gap lands the node on --timeline-axis; translateX(-50%)
-     then centers it. */
+     by --timeline-gap lands the node on --timeline-axis; the -50% shifts
+     center it on both axes, so the dot sits on the line and at the card's
+     vertical middle no matter how tall the card is. */
   left: calc(var(--timeline-gap) * -1);
-  top: 2rem;
-  transform: translateX(-50%);
+  top: 50%;
+  transform: translate(-50%, -50%);
   line-height: 0;
 }
 
@@ -401,6 +493,19 @@ onMounted(() => {
   overflow: hidden;
   border: 2px solid #f3f4f6;
   flex-shrink: 0;
+}
+
+.company-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
 }
 
 .company-image {
@@ -493,6 +598,7 @@ onMounted(() => {
 .date-range {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 0.5rem;
   font-size: 0.875rem;
   color: #6b7280;
