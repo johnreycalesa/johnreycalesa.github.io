@@ -112,6 +112,16 @@ const experiences = computed(() => [
 
 const certificates = [
   {
+    name: 'Bachelor of Science in Information Systems',
+    issuer: 'University of San Carlos',
+    description:
+      'A four-year program that mixes computer science with the way real businesses work: designing software, managing data, and planning systems that help a company run better. I went back to school for the bachelor’s degree after finishing my earlier certificate here, and I am taking classes alongside my full-time job.',
+    date: 'August 2026 – Present',
+    number: '—',
+    link: 'https://www.linkedin.com/in/calesajohnrey/details/education/',
+    icon: 'school'
+  },
+  {
     name: 'Foundational C# with Microsoft',
     issuer: 'Microsoft and freeCodeCamp',
     description:
