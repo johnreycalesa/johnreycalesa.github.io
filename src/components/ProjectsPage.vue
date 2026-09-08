@@ -6,76 +6,76 @@ const projects = [
     name: 'AnatomyQuest',
     year: 'January 2026 - March 2026',
     description:
-      'Contributed to an open-source anatomy education platform built in collaboration with underprivileged communities, where site revenue is reinvested to support them directly',
+      'A free website that teaches how the human body works. Anyone can help improve it, and the money it earns goes back to the communities that helped build it',
     details:
-      'Developed interactive, image-driven anatomy information pages with Next.js 14 and TypeScript. Focused on comprehensive content structure, accessible UI with Tailwind CSS, and a scalable architecture that lets educators and contributors extend the resource library. Licensed under CC-BY-SA-4.0.',
+      'I built the picture-led lesson pages, where you can click a body part to read about it. The pages are easy to read on any screen, and teachers can add new lessons without touching the code. The site is free for anyone to use and share.',
     link: 'https://anatomyquest.vercel.app/',
     image: 'photos/project_6.png',
     alt: 'AnatomyQuest website',
-    category: 'Educational Platform',
+    category: 'Learning website',
     technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS']
   },
   {
     name: 'Camino Code',
     year: 'March 2025 - October 2025',
     description:
-      'Contributed as a Software Engineer to the official company website of Camino Code, an Applied AI and Product Engineering studio based in New Jersey, USA',
+      'The main website of Camino Code, a company in New Jersey, USA that builds AI products for other businesses',
     details:
-      'Built a high-performance, SEO-ready marketing site with Next.js 15 App Router and React 18. Implemented interactive 3D scenes with Three.js and React Three Fiber, GSAP-driven animations, Locomotive smooth scrolling, dynamic case study pages, and WCAG-compliant accessibility.',
+      'I built a site that loads fast and is easy for Google to find. It has moving 3D shapes, smooth animations as you scroll, and pages that tell the story of each project. I also made sure it works for people who use screen readers.',
     link: 'https://caminocode.com/',
     image: 'photos/project_5.png',
     alt: 'Camino Code website screenshot',
-    category: 'Corporate Website',
+    category: 'Company website',
     technologies: ['Next.js', 'React', 'Tailwind CSS', 'Three.js', 'GSAP']
   },
   {
     name: 'Daniel Avila Portfolio',
     year: 'May 2026 - June 2026',
     description:
-      'Designed and developed a professional personal portfolio for an IT Support Professional based in the USA',
+      'A personal website for an IT support specialist in the USA, so employers can see his skills in one place',
     details:
-      'Clean, modern, mobile-optimized portfolio showcasing expertise, certifications, and career journey. Built with Next.js and TypeScript, featuring a tailored color palette, custom typography (Monda + Quicksand), and SEO-ready architecture for fast page loads.',
+      'A clean, simple site that shows his skills, his certificates, and the story of his career. It looks great on a phone, loads quickly, and uses colors and fonts picked to match him.',
     link: 'https://www.danielavila.tech/',
     image: 'photos/project_4.png',
     alt: 'Daniel Avila portfolio website screenshot',
-    category: 'Personal Portfolio',
+    category: 'Personal website',
     technologies: ['Next.js', 'TypeScript', 'JavaScript', 'CSS']
   },
   {
     name: 'Speedy Delivery and Repair',
     year: 'February 2024 - December 2024',
     description:
-      'Developed a full-stack responsive website for a delivery and repair business based in South Carolina, USA',
-    details: 'Built with modern web technologies to provide seamless user experience for booking delivery and repair services online.',
+      'A website for a delivery and repair business in South Carolina, USA, where customers can book a job online',
+    details: 'Customers can book a delivery or a repair in a few taps, on a phone or a computer, instead of having to call. I built both the pages they see and the code that saves each booking.',
     link: 'https://speedyrepairanddelivery.com/',
     image: 'photos/project_1.jpeg',
     alt: 'Speedy Delivery and Repair website screenshot',
-    category: 'Full Stack Web',
-    technologies: ['Vue.js', 'Node.js', 'Responsive Design']
+    category: 'Business website',
+    technologies: ['Vue.js', 'Node.js', 'Works on any screen']
   },
   {
     name: 'Victoria\'s Paintings',
     year: 'June 2023 - July 2023',
     description:
-      'Developed a full-stack responsive website for a painting business based in New Jersey, USA',
-    details: 'Created an elegant portfolio showcase with service booking capabilities and gallery management system.',
+      'A website for a painting business in New Jersey, USA, showing their past work and letting people book a job',
+    details: 'A photo gallery that shows off finished paintings, plus a simple booking form. The owner can add or remove photos without asking a developer for help.',
     link: 'https://victoriaspainting.com/',
     image: 'photos/project_2.png',
     alt: 'Victoria\'s Paintings website screenshot',
-    category: 'Full Stack Web',
-    technologies: ['React', 'Firebase', 'CMS']
+    category: 'Business website',
+    technologies: ['React', 'Firebase', 'Easy photo editing']
   },
   {
     name: 'Favio Jasso',
     year: 'February 2023 - September 2023',
     description:
-      'Developed an inventory system for an analytics and marketing consultancy in New Jersey, USA',
-    details: 'Comprehensive inventory management solution with real-time tracking, analytics dashboard, and reporting features.',
+      'A stock-tracking system for a marketing company in New Jersey, USA, so they always know what they have',
+    details: 'The team can see what is in stock right now, watch how it changes over time on one clear screen, and print reports whenever they need them.',
     link: 'https://www.faviojasso.com/',
     image: 'photos/project_3.png',
     alt: 'Favio Jasso inventory system screenshot',
-    category: 'Inventory System',
-    technologies: ['Angular', 'MySQL', 'Dashboard']
+    category: 'Stock tracking app',
+    technologies: ['Angular', 'MySQL', 'Reports screen']
   }
 ]
 
@@ -109,10 +109,11 @@ onMounted(() => {
       <!-- Section Header -->
       <div class="section-header">
         <div class="header-content">
-          <span class="section-badge">Portfolio</span>
-          <h2 class="section-title">Featured Projects</h2>
+          <span class="section-badge">My Work</span>
+          <h2 class="section-title">Things I Have Built</h2>
           <p class="section-description">
-            A selection of client projects showcasing full-stack development expertise and creative problem-solving
+            Real websites and apps I built for real clients. Each one shows what the site does and
+            which tools I used to make it.
           </p>
         </div>
       </div>
@@ -126,7 +127,7 @@ onMounted(() => {
             <img class="project-image" :src="project.image" :alt="project.alt" loading="lazy" />
             <div class="image-overlay" :class="{ 'overlay-visible': hoveredProject === index }">
               <a :href="project.link" target="_blank" rel="noopener noreferrer" class="view-project-button">
-                <span>View Live Site</span>
+                <span>Open the website</span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
                   stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
@@ -175,7 +176,7 @@ onMounted(() => {
 
             <div class="project-footer">
               <a :href="project.link" target="_blank" rel="noopener noreferrer" class="project-link">
-                <span>Learn More</span>
+                <span>Take a look</span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
                   stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -190,12 +191,12 @@ onMounted(() => {
       <!-- Call to Action -->
       <div class="cta-section">
         <div class="cta-content">
-          <h3 class="cta-title">Interested in working together?</h3>
+          <h3 class="cta-title">Want to build something together?</h3>
           <p class="cta-description">
-            Let's discuss how I can help bring your project to life with modern web solutions
+            Tell me what you need and I will help you turn it into a real website or app.
           </p>
           <a href="#footer" class="cta-button">
-            <span>Get in Touch</span>
+            <span>Contact me</span>
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <line x1="22" y1="2" x2="11" y2="13"></line>
