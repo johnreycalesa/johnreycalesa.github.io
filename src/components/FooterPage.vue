@@ -55,7 +55,7 @@ onMounted(() => {
             </div>
             <h2 class="section-title">Let's Work Together</h2>
             <p class="section-description">
-              Have a project in mind? Drop me a message and let's bring your ideas to life.
+              Have an idea for a website or an app? Send me a message and I will get back to you.
             </p>
           </div>
 
@@ -66,7 +66,7 @@ onMounted(() => {
                   <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                   <circle cx="12" cy="7" r="4"></circle>
                 </svg>
-                <span>Your Name</span>
+                <span>Your name</span>
               </label>
               <input
                 id="name"
@@ -85,7 +85,7 @@ onMounted(() => {
                   <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                   <polyline points="22,6 12,13 2,6"></polyline>
                 </svg>
-                <span>Email Address</span>
+                <span>Your email</span>
               </label>
               <input
                 id="email"
@@ -103,21 +103,21 @@ onMounted(() => {
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
                 </svg>
-                <span>Message</span>
+                <span>Your message</span>
               </label>
               <textarea
                 id="message"
                 v-model="formData.message"
                 name="message"
                 class="form-textarea"
-                placeholder="Tell me about your project..."
+                placeholder="Tell me what you would like to build..."
                 rows="5"
                 required
               ></textarea>
             </div>
 
             <button type="submit" class="submit-button" :disabled="isSubmitting">
-              <span v-if="!isSubmitting">Send Message</span>
+              <span v-if="!isSubmitting">Send message</span>
               <span v-else>Sending...</span>
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <line x1="22" y1="2" x2="11" y2="13"></line>
@@ -130,8 +130,8 @@ onMounted(() => {
         <!-- Contact Info Section -->
         <div class="info-section">
           <div class="info-card">
-            <h3 class="info-title">Get in Touch</h3>
-            <p class="info-subtitle">I'm always open to discussing new projects and opportunities</p>
+            <h3 class="info-title">How to Reach Me</h3>
+            <p class="info-subtitle">I am always happy to hear about a new project or job</p>
 
             <div class="contact-methods">
               <a href="mailto:calesajohnrey@gmail.com" class="contact-item">
@@ -161,7 +161,7 @@ onMounted(() => {
             </div>
 
             <div class="social-section">
-              <h4 class="social-title">Connect With Me</h4>
+              <h4 class="social-title">Find Me Online</h4>
               <div class="social-links">
                 <a
                   href="https://github.com/johnreycalesa"
@@ -223,7 +223,7 @@ onMounted(() => {
                   alt="Support me on Ko-fi"
                   class="kofi-image"
                 />
-                <span>Support my work</span>
+                <span>Buy me a coffee</span>
               </a>
             </div>
           </div>
@@ -233,14 +233,14 @@ onMounted(() => {
       <!-- Footer Bottom -->
       <div class="footer-bottom">
         <div class="footer-branding">
-          <img src="../assets/penguin.png" width="32" height="32" alt="Logo" class="footer-logo" />
+          <img src="../assets/penguin.png" width="32" height="32" alt="John Rey Calesa logo" class="footer-logo" />
           <span class="footer-name">John Rey Calesa</span>
         </div>
         <p class="footer-copyright">
           © {{ new Date().getFullYear() }} John Rey Calesa. All rights reserved.
         </p>
         <div class="footer-links">
-          <a href="#header" class="footer-link">Back to Top</a>
+          <a href="#header" class="footer-link">Back to the top</a>
         </div>
       </div>
     </div>
