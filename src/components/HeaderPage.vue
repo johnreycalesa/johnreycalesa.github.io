@@ -46,7 +46,7 @@ const formattedYears = computed(() => {
               <circle cx="12" cy="12" r="10"></circle>
               <polyline points="12 6 12 12 16 14"></polyline>
             </svg>
-            <span>Open to new work</span>
+            <span>Currently working and studying</span>
           </div>
 
           <h1 class="hero-title">
