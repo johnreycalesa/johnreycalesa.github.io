@@ -2,7 +2,7 @@
 import { ref, onMounted, computed } from 'vue'
 
 const skillCategories = {
-  'Frontend': [
+  'Front End': [
     { name: 'HTML', image: 'logos/html.png', color: '#E44D26', level: 95 },
     { name: 'CSS', image: 'logos/css.png', color: '#1172B8', level: 90 },
     { name: 'JavaScript', image: 'logos/javascript.png', color: '#FFCA28', level: 90 },
@@ -13,7 +13,7 @@ const skillCategories = {
     { name: 'TailwindCSS', image: 'logos/tailwind.png', color: '#2298BD', level: 90 },
     { name: 'jQuery', image: 'logos/jquery.png', color: '#0769AD', level: 85 }
   ],
-  'Backend': [
+  'Back End': [
     { name: 'C#', image: 'logos/csharp.png', color: '#662579', level: 85 },
     { name: 'Python', image: 'logos/python.png', color: '#1565A7', level: 80 },
     { name: 'Java', image: 'logos/java.png', color: '#E76F00', level: 80 },
@@ -22,7 +22,7 @@ const skillCategories = {
     { name: 'Springboot', image: 'logos/springboot.png', color: '#6db53d', level: 75 },
     { name: 'CodeIgniter', image: 'logos/codeigniter.png', color: '#EE4323', level: 80 }
   ],
-  'Database & Tools': [
+  'Databases & Tools': [
     { name: 'MySQL', image: 'logos/mysql.png', color: '#00546B', level: 85 },
     { name: 'MongoDB', image: 'logos/mongodb.png', color: '#499D4A', level: 80 },
     { name: 'Firebase', image: 'logos/firebase.png', color: '#FFA712', level: 85 },
@@ -31,8 +31,16 @@ const skillCategories = {
   ]
 }
 
+// One plain-English line per group, so a visitor who has never written code
+// still knows what these tools are for.
+const categoryDescriptions = {
+  'Front End': 'The part of a website you can see and click: buttons, pages, menus, and layouts.',
+  'Back End': 'The hidden part that does the thinking: it checks, saves, and sends the information.',
+  'Databases & Tools': 'Where all the information is kept, plus the extra tools that help me build.'
+}
+
 const selectedSkill = ref(null)
-const activeCategory = ref('Frontend')
+const activeCategory = ref('Front End')
 
 const allSkills = computed(() => {
   return Object.values(skillCategories).flat()
@@ -65,10 +73,11 @@ onMounted(() => {
       <!-- Section Header -->
       <div class="section-header">
         <div class="header-content">
-          <span class="section-badge">Technical Expertise</span>
-          <h2 class="section-title">Skills & Technologies</h2>
+          <span class="section-badge">What I Use</span>
+          <h2 class="section-title">Skills and Tools</h2>
           <p class="section-description">
-            A comprehensive toolkit of modern technologies and frameworks I use to build robust, scalable applications
+            These are the tools I use to build websites and apps. Pick a group below to see what
+            each set of tools is for.
           </p>
         </div>
       </div>
@@ -86,6 +95,9 @@ onMounted(() => {
           <span class="category-count">{{ skills.length }}</span>
         </button>
       </div>
+
+      <!-- What this group of tools is for -->
+      <p class="category-description">{{ categoryDescriptions[activeCategory] }}</p>
 
       <!-- Skills Grid -->
       <div class="skills-grid">
@@ -132,7 +144,7 @@ onMounted(() => {
               <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="20 6 9 17 4 12"></polyline>
               </svg>
-              <span class="overlay-text">Proficient</span>
+              <span class="overlay-text">I use this a lot</span>
             </div>
           </div>
         </div>
@@ -141,8 +153,8 @@ onMounted(() => {
       <!-- All Skills Summary -->
       <div class="skills-summary">
         <div class="summary-header">
-          <h3 class="summary-title">Complete Technology Stack</h3>
-          <p class="summary-subtitle">{{ allSkills.length }} technologies and growing</p>
+          <h3 class="summary-title">Everything I Work With</h3>
+          <p class="summary-subtitle">{{ allSkills.length }} tools so far, and I keep learning more</p>
         </div>
         <div class="skills-tags">
           <span
@@ -220,7 +232,16 @@ onMounted(() => {
   flex-wrap: wrap;
   gap: 1rem;
   justify-content: center;
-  margin-bottom: 3rem;
+  margin-bottom: 1.25rem;
+}
+
+.category-description {
+  max-width: 640px;
+  margin: 0 auto 3rem;
+  text-align: center;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #6b7280;
 }
 
 .category-tab {
